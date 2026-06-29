@@ -11,9 +11,9 @@
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
-    "lucide-react": "latest",
-    "@google/genai": "latest",
-    "firebase": "latest"
+    "react-router-dom": "latest",
+    "firebase": "latest",
+    "lucide-react": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
