@@ -1,61 +1,70 @@
-export enum AgentId {
-    BUSINESS = 'business',
-    SOCIAL = 'social',
-    WEB = 'web',
-    FRONT_DESK = 'front_desk',
-    APPOINTMENTS = 'appointments',
-    LEADS = 'leads',
-    MARKETING = 'marketing',
-    SETTINGS = 'settings'
+export interface User {
+  email: string;
+  businessName: string;
+  tier: 'starter' | 'growth' | 'pro';
+  isAdmin: boolean;
+  createdAt: number;
+}
+
+export interface BusinessContext {
+  businessName: string;
+  services: string;
+  hours: string;
+  location: string;
+  brandVoice: string;
+  platforms: string;
+  phone: string;
+  differentiator: string;
+  commonQuestions: string;
+}
+
+export interface Agent {
+  id: string;
+  name: string;
+  subtitle: string;
+  icon: string;
+  color: string;
+  status: 'online' | 'offline';
+  systemPrompt?: string;
+  vertexAgentId?: string;
+  tier: 'starter' | 'growth' | 'pro';
 }
 
 export interface Message {
-    id: string;
-    role: 'user' | 'model';
-    text: string;
-    timestamp: number;
+  id?: string;
+  text: string;
+  sender: 'user' | 'agent';
+  timestamp: number;
 }
 
 export interface Appointment {
-    id: string;
-    clientName: string;
-    dateTime: string;
-    service: string;
-    status: 'Scheduled' | 'Completed' | 'Cancelled';
+  id?: string;
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  service: string;
+  status: 'Confirmed' | 'Pending' | 'Cancelled';
 }
 
-export interface ContactLead {
-    id: string;
-    name: string;
-    email: string;
-    phone?: string;
-    message: string;
-    createdAt: number;
+export interface Lead {
+  id?: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  submittedAt: number;
+  status: 'New' | 'Contacted';
+  source?: string;
+  duration?: string;
+  transcript?: string;
 }
 
-export interface SocialPost {
-    id: string;
-    text: string;
-    imageUrl: string;
-    status: 'Draft' | 'Approved' | 'Published' | 'Rejected';
-    createdAt: number;
-}
-
-export interface CallLog {
-    id: string;
-    callerName: string;
-    phoneNumber: string;
-    duration: string;
-    timestamp: string;
-    transcript: string;
-    summary: string;
-}
-
-export interface AgentConfig {
-    id: AgentId;
-    name: string;
-    subtitle: string;
-    iconName: string;
-    colorClass: string;
-    defaultPrompt: string;
+export interface Post {
+  id?: string;
+  content: string;
+  status: 'Draft' | 'Approved' | 'Published';
+  scheduledFor?: number;
+  publishedAt?: number;
 }
