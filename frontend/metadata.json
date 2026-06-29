@@ -1,7 +1,8 @@
 {
   "name": "Kate AOS",
-  "description": "A multi-agent AI dashboard powered by Gemini, featuring specialized agents for business management, social media, web design, and front desk operations.",
+  "description": "Production-ready multi-agent SaaS platform for small businesses.",
   "requestFramePermissions": [
+    "camera",
     "microphone"
   ]
 }
